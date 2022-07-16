@@ -6,18 +6,28 @@ import java.util.UUID;
 
 public class Course {
 
-    private final UUID uuid;
+    private final UUID id;
     private String name;
     private Teacher teacher;
 
+    public Course() {
+        this.id = UUID.randomUUID();
+    }
+
     public Course(String name, Teacher teacher) {
-        this.uuid = UUID.randomUUID();
+        this.id = UUID.randomUUID();
         this.name = name;
         this.teacher = teacher;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public Course(UUID id, String name, Teacher teacher) {
+        this.id = id;
+        this.name = name;
+        this.teacher = teacher;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String getName() {
@@ -38,7 +48,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return  "uuid=" + uuid +
+        return  "uuid=" + id +
                 ", name = " + name + '\'' +
                 ", teacher =" + teacher;
     }
